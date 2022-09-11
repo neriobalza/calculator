@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+:root {
+  ---body-background: #2f4056;
+  --calculator-background: #1a1a1a;
+  --display-background: #1f2922;
+  --button-background: #4d4d4d;
+  --button-active: #3f3f3f;
+  --button-background-orange: #f8931f;
+  --button-active-orange: #cf6f00;
+  --button-background-blue: #009ff7;
+  --text-color: #fff;
+  --font-sm: 16px;
+  --font-md: 18px;
+  --font-bg: 28px;
+}
+
+@keyframes blinker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: var(---body-background);
+  color: var(--text-color);
+  font-size: var(--font-md);
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 384px;
+  background: var(--calculator-background);
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  box-sizing: 0px 0px 10px 2px var(--calculator-background);
+  border-radius: 2.2rem;
+}
+
+.display {
+  width: 100%;
+  background: var(--display-background);
+  height: 18rem;
+  border-radius: 1.2rem;
+  padding: 0.4rem 0.8rem;
+  overflow: overlay;
+  scroll-behavior: smooth;
+}
+
+.display::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+.display::-webkit-scrollbar-thumb {
+  background: none;
+  border-radius: 1rem;
+}
+
+.display:hover::-webkit-scrollbar-thumb {
+  background: var(--button-background);
+}
+
+.total {
+  text-align: right;
+}
+
+.input-container {
+  display: flex;
+  margin-bottom: 10.5rem;
+}
+
+.blinker {
+  animation-name: blinker;
+  animation-duration: 1.25s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.buttons-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2rem;
+}
+
+.btn {
+  background: var(--button-background);
+  border: none;
+  height: 5rem;
+  width: 100%;
+  max-width: 6rem;
+  border-radius: 0.8rem;
+  font-size: var(--font-md);
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  transition: 200ms;
+}
+
+.btn:active {
+  background: var(--button-active);
+}
+
+.operator {
+  background: var(--button-background-orange);
+}
+
+.operator:active {
+  background: var(--button-active-orange);
+}
+
+.equal {
+  background: var(--button-background-orange);
+  grid-column-start: 3;
+  grid-column-end: 6;
+  max-width: initial;
+}
+
+.equal:active {
+  background: var(--button-active-orange);
+}
+
+.icon {
+  font-weight: var(--font-bg);
+}
